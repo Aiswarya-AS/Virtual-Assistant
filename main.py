@@ -88,7 +88,7 @@ def sendEmail():
 
 def sendWhatsappMsg():
     user_list = {
-        "test1":"+91 9633256348"
+        "test1":"+91"
     }
     try:
 
