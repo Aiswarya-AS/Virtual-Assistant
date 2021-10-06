@@ -15,9 +15,7 @@ import psutil
 import pyttsx3 #text to speech convertion
 import speech_recognition as sr
 
-for index, name in enumerate(sr.Microphone.list_microphone_names()):
-    print("Microphone with name\"{1}\" found for `Microphone(device_index={0}`)".format(
-        index, name))
+
 
 
 def inputCommand():
@@ -108,14 +106,14 @@ def sendWhatsappMsg():
 
 def weather():
     city = 'Thrissur'
-    res = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=251bb10b46b836150b63016e3154c677&units=metric").json()
+    res = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=API&units=metric").json()
     temp  = res["weather"][0]["description"]
     temp2  = res["main"]["temp"]
     output(f"Temparature is {format(temp2)} degree Celsius\nWeather is {format(temp)}")
 
 
 def news():
-    newsapi = NewsApiClient(api_key ="95b3f6ee30fa4a6aa3d49008209da4cd")
+    newsapi = NewsApiClient(api_key ="API")
     output("In which topic do you want news about?")
     topic  = inputCommand().lower()
     data  = newsapi.get_top_headlines(q=topic,language='en',page_size =5)
@@ -133,11 +131,7 @@ def idea():
         print(data,file= r)
 greet()
 
-# sendEmail()
-# sendWhatsappMsg()
-# weather()
-# news()
-# idea()
+
 
 while True:
     query = inputCommand().lower()
