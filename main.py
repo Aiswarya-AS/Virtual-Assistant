@@ -170,6 +170,26 @@ while True:
         pyautogui.screenshot(str(ti.time()) +".png").show()
     elif("cpu" in query):
         output(f"CPU is at {str(psutil.cpu_percent())}")
+    elif("What can you do" in query):
+        list_commands={
+            "Date and time":"what time/date its is?",
+            "Email":"Send email",
+            "Whatsapp Message":"Send message",
+            "Search":"Search about topic",
+            "Search youtube":"Play video on youtube",
+            "Weather":"What weather is in kochi?",
+            "News/Read":"news about covid/read about covid",
+            "Covid updates":"Tell covid updates",
+            "Joke":"Tell Me a Joke",
+            "Idea":"Remeember these idea",
+            "Screenshot":"Take screenshot",
+            "CPU":"CPU is at..",
+            "Offline":"Go offline"
+        }
+        ans = """I can do lots of things, for example you can ask me time, date, weather in your city,
+        I can open websites for you, take screenshots and more. See the list of commands-"""
+        output(ans)
+        print(list_commands)
     elif("offline" in query):
         hour = datetime.datetime.now().hour
         if (hour>=21) and (hour <6 ):
